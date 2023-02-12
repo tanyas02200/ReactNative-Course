@@ -2,11 +2,12 @@ import React from "react"
 import { ActivityIndicator } from "react-native"
 import { WebView } from "react-native-webview"
 
-export default WebViewScreen = () => {
+export default WebViewScreen = ({route}) => {
+  
    return (
       <WebView
          source={{
-            uri: "https://youtube.com",
+            uri: route.params.url,
          }}
          startInLoadingState={true}
          renderLoading={() => <ActivityIndicator size="large" />}

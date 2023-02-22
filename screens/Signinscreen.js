@@ -2,10 +2,10 @@
 
 import { useLinkTo } from "@react-navigation/native";
 import React, { Component } from "react"
-
+import {useState} from "react"
 import { Button, SafeAreaView, StyleSheet ,TextInput,Image, TouchableOpacity} from "react-native";
 import { View ,Text} from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView, State } from "react-native-gesture-handler";
 import  Icon  from "react-native-vector-icons/MaterialIcons";
 import COLORS from "./consts/color";
 import STYLES from "./styles";
@@ -14,7 +14,7 @@ import STYLES from "./styles";
 //    constructor(props) {
 //       super(props)
 //    }
-//    render() {
+//    render() {i
 //       const Websites = [
 //          {
 //             buttonTitle: "Youtube",
@@ -58,7 +58,19 @@ import STYLES from "./styles";
 //    }
 // }
 
-function Signinscreen({navigation}){
+// function Signinscreen({navigation}){
+   const Signinscreen =({navigation}) => {
+   const[user,setUser]= useState({
+      email:"",password:""});
+   let name,value;
+   const handlesubmit=(e)=>{
+     console.log(user);
+      // name=e.target.name;
+      // value= e.target.value;
+
+      // setUser({...user,[name]:value});
+   }
+
    return(
       <SafeAreaView style={{paddingHorizontal:20,
       flex:1,
@@ -84,7 +96,11 @@ function Signinscreen({navigation}){
                     color={COLORS.light} 
                     style={STYLES.inputIcon}
                      />
-                     <TextInput placeholder="Email" style={STYLES.input} />
+                     <TextInput placeholder="Email" 
+                     style={STYLES.input}
+                     value={user.name}
+                    onChangeText={val => setUser({...user,"email":val})}
+                     />
                </View>
             </View>
             {/* <View style={{marginTop:20}} >  */}
@@ -99,11 +115,14 @@ function Signinscreen({navigation}){
                      <TextInput 
                      placeholder="Password" 
                      style={STYLES.input} 
+                     value={user.name}
+                     onChangeText={val => setUser({...user,"password":val})}
                      secureTextEntry
                      />
                </View>
                <View style ={STYLES.Button1}>
-               <Text style={{color:COLORS.white,fontWeight:'bold',fontSize:18}}>Sign In</Text>
+               <Text style={{color:COLORS.white,fontWeight:'bold',fontSize:18}} 
+               onPress = {handlesubmit}>Sign In</Text>
                </View>
       <View style={{
       marginVertical:20,

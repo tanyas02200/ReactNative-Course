@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 import { useNavigation } from "@react-navigation/native";
-import {SafeAreaView,TouchableOpacity,View, Text} from "react-native";
-import COLORS from "/Users/tanyaasharma/DesignProj/COLORS.js";
-import styles from "/Users/tanyaasharma/DesignProj/components/signUpScreen/styles.js";
-
+import { SafeAreaView, TouchableOpacity, View, Text } from "react-native";
+import styles from "./styles1";
+import Form from "../Form/Form";
 function signUpScreen() {
   const navigation = useNavigation();
   const formData = [
     {
       placeholder: "Name",
-      isPassword: false,
       entityName: "Name",
     },
     {
       placeholder: "Email",
-      isPassword: false,
       entityName: "Email",
     },
     {
@@ -23,42 +20,26 @@ function signUpScreen() {
       entityName: "Password",
     },
   ];
+
   return (
-    <SafeAreaView style={styles.SUcont}>
-      <View style={styles.Viewstyle1}>
-        <Text style={styles.textstyle1}> Pick </Text>
-        <Text style={styles.textstyle2}> Up </Text>
-      </View>
-      <View style={styles.Button1}>
-        <Text style={styles.signupbutton}>Sign Up</Text>
-      </View>
-      <View style={styles.Orbutton}>
-        <View style={styles.line}></View>
-        <Text style={styles.Ortext}> OR </Text>
-        <View style={styles.line}></View>
-      </View>
-
-      <View style={styles.Orbutton}>
-        <View style={styles.Button2}>
-          <Text>GOOGLE </Text>
+<SafeAreaView>
+      <View style={styles.verticalLayout}>
+        <View style={styles.body}>
+          <Text style={styles.header1}> PIK </Text>
+          <Text style={styles.header2}> Up </Text>
         </View>
-        <View style={styles.Button2}>
-          <Text style={{ fontWeight: "bold", fontSize: 16 }}>FACEBOOK </Text>
+        <Form formData={formData} />
+        <TouchableOpacity style={styles.SignInButton}>
+          <Text>Sign Up</Text>
+        </TouchableOpacity>
+        <View style={styles.centerLayout}>
+          <TouchableOpacity onPress={() => navigation.navigate("signInScreen")}>
+            <Text style={styles.signuptext}>Already Have an Account?</Text>
+          </TouchableOpacity>
         </View>
       </View>
-
-      <TouchableOpacity onPress={() => navigation.navigate("signInScreen")}>
-        <Text
-          style={{
-            color: COLORS.pink,
-            fontWeight: "bold",
-            textAlign: "center",
-          }}
-        >
-          Sign In!
-        </Text>
-      </TouchableOpacity>
     </SafeAreaView>
+
   );
-}
+};
 export default signUpScreen;

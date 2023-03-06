@@ -1,6 +1,20 @@
 import { StyleSheet } from "react-native";
-import COLORS from "./COLORS";
+import COLORS from "/Users/tanyaasharma/DesignProj/COLORS.js";
 const styles = StyleSheet.create({
+  ViewMain: {
+  addingHorizontal:20,
+        flex:1,
+  },
+  Viewstyle1:{
+    flexDirection:'row',
+    marginTop:10,
+    backgroundColor:'#D3D3D3',
+    height:'10%',
+    display:'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  signupbutton:{ color: COLORS.white, fontWeight: "bold", fontSize: 18 },
     container: {
       flex: 1,
       backgroundColor: '#fff',
@@ -11,16 +25,6 @@ const styles = StyleSheet.create({
     inputContainer:{
       flexDirection:"row",
       marginTop:30
-    },
-
-    Viewstyle1:{
-      flexDirection:'row',
-      marginTop:10,
-      backgroundColor:'#D3D3D3',
-      height:'10%',
-      display:'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
     },
     textstyle1: {
     fontWeight:'bold',
@@ -36,13 +40,6 @@ const styles = StyleSheet.create({
     marginTop:5,
     position:'absolute',
 },
-input:{
-    color:COLORS.light,
-    // paddingLeft:40,
-    // borderBottomWidth:2,
-    flex:1,
-    fontSize:18,
-},
 Button1:{
   backgroundColor: COLORS.secondary,
   height:50,
@@ -51,18 +48,6 @@ Button1:{
   alignItems:'center',
   borderRadius: 100,
   margin:25
-},
-rcorners2 :{
-  marginTop:20,
-  margin:20,
-  borderRadius: 30,
-  borderWidth: 2 ,
-  borderColor :COLORS.primary,
-  padding: 20,
-  // width: 200,
-  height: 70,
-  opacity:1,
-  backgroundColor:"#D3D3D3",
 },
 Button1style:{
   color:COLORS.white,
@@ -119,6 +104,25 @@ SUcont:{
     flex:1,
     backgroundColor:COLORS.white,
 },
+headerboxcorners :{
+  marginTop:20,
+  margin:20,
+  borderRadius: 30,
+  borderWidth: 2 ,
+  borderColor :COLORS.primary,
+  padding: 20,
+  // width: 200,
+  height: 70,
+  opacity:1,
+  backgroundColor:"grey",
+},
+input:{
+  color:COLORS.light,
+  flex:1,
+  fontSize:18,
+},
+signInText:
+{flexDirection: "row", justifyContent: "space-between"}
 
 });
   export default styles;

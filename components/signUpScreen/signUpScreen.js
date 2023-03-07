@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, TouchableOpacity, View, Text } from "react-native";
-import styles from "./styles1";
+import styles from "./signUpStyle";
 import Form from "../Form/Form";
+import Header from "../Header/Header";
 function signUpScreen() {
   const navigation = useNavigation();
   const formData = [
@@ -22,24 +23,17 @@ function signUpScreen() {
   ];
 
   return (
-<SafeAreaView>
-      <View style={styles.verticalLayout}>
-        <View style={styles.body}>
-          <Text style={styles.header1}> PIK </Text>
-          <Text style={styles.header2}> Up </Text>
-        </View>
-        <Form formData={formData} />
-        <TouchableOpacity style={styles.SignInButton}>
-          <Text>Sign Up</Text>
-        </TouchableOpacity>
-        <View style={styles.centerLayout}>
+    <SafeAreaView>
+      <View style={styles.verticalalignment}>
+        <Header />
+        <Form formData={formData} isSignIn={false} />
+        <View style={styles. centeralalignment}>
           <TouchableOpacity onPress={() => navigation.navigate("signInScreen")}>
-            <Text style={styles.signuptext}>Already Have an Account?</Text>
+            <Text style={styles.footertext}>Already Have an Account?</Text>
           </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
-
   );
-};
+}
 export default signUpScreen;

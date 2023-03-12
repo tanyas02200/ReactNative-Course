@@ -4,21 +4,25 @@ import { SafeAreaView, TouchableOpacity, View, Text } from "react-native";
 import styles from "./signUpStyle";
 import Form from "../Form/Form";
 import Header from "../Header/Header";
+import BootstrapStyleSheet from 'react-native-bootstrap-styles';
+
 function signUpScreen() {
   const navigation = useNavigation();
   const formData = [
     {
       placeholder: "Name",
-      entityName: "Name",
+      entityName: "name",
+      isPassword: false,
     },
     {
       placeholder: "Email",
-      entityName: "Email",
+      entityName: "email",
+      isPassword: false,
     },
     {
       placeholder: "Password",
       isPassword: true,
-      entityName: "Password",
+      entityName: "password",
     },
   ];
 

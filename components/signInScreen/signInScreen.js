@@ -11,18 +11,20 @@ import COLORS from "../../COLORS";
 import { useNavigation } from "@react-navigation/native";
 import Form from "../Form/Form";
 import Header from "../Header/Header";
+import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 
 export default signInScreen = () => {
   const navigation = useNavigation();
   const formData = [
     {
       placeholder: "Email",
-      entityName: "Email",
+      entityName: "email",
+      isPassword: false,
     },
     {
       placeholder: "Password",
       isPassword: true,
-      entityName: "Password",
+      entityName: "password",
     },
   ];
   return (

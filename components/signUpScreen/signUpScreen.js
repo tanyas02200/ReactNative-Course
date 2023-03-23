@@ -4,7 +4,6 @@ import { SafeAreaView, TouchableOpacity, View, Text } from "react-native";
 import styles from "./signUpStyle";
 import Form from "../Form/Form";
 import Header from "../Header/Header";
-import BootstrapStyleSheet from 'react-native-bootstrap-styles';
 
 function signUpScreen() {
   const navigation = useNavigation();

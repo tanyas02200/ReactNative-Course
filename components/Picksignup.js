@@ -9,10 +9,11 @@ import {
   SafeAreaView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
+import { bindActionCreators } from 'redux';
 import { TextInput, Button } from "react-native-paper";
+import { connect } from 'react-redux';
 
-export default class Picksignup extends React.Component {
+class Picksignup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +29,8 @@ export default class Picksignup extends React.Component {
   /**
    * authenticate user
    */
+
+  
   authentication = async () => {
     this.setState({ loading: true });
     const {name, username, password } = this.state;
@@ -61,6 +64,8 @@ export default class Picksignup extends React.Component {
   };
 
   render() {
+    let {auth, actions} = this.props;
+    console.log(auth);
     return (
       <SafeAreaView>
         <ScrollView>
@@ -133,3 +138,18 @@ const styles = StyleSheet.create({
   padding:20
 },
 });
+
+const ActionCreators = Object.assign(
+  {}
+);
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(ActionCreators, dispatch),
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Picksignup);

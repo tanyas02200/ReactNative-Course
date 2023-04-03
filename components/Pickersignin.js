@@ -10,8 +10,12 @@ import {
 } from "react-native";
 import { createStackNavigator } from 'react-navigation';
 import { TextInput, Button } from "react-native-paper";
+import { connect } from 'react-redux';
+import { authReducer } from './store/reducers/authReducer';
+import { signIn } from "./store/actions/action";
+import { bindActionCreators } from 'redux';
 
-export default class Picker extends React.Component {
+class Picker extends React.Component {
 
   constructor(props) {
     super(props);
@@ -29,6 +33,7 @@ export default class Picker extends React.Component {
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     this.setState({ loading: true });
     const { username, password } = this.state;
+    let {auth, actions} = this.props;
     let errorFlag = false;
     console.log(username);
     console.log(password);
@@ -54,6 +59,9 @@ export default class Picker extends React.Component {
       errorFlag = false;
       this.setState({ passwordMessage: true });
     }
+    auth.username = this.state.username;
+    auth.password = this.state.password;
+    actions.signIn(auth);
   };
   render() {
     return (
@@ -118,3 +126,18 @@ const styles = StyleSheet.create({
   padding:10
 }
 });
+
+const ActionCreators = Object.assign(
+  {},
+  signIn,
+);
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(ActionCreators, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Picker);
